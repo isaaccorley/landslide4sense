@@ -2,10 +2,12 @@ module:
     _target_: src.models.SegmentationModel
     model: Unet
     backbone: resnet18
+    loss: ce_jaccard
     num_channels: 14
     num_classes: 2
     weights: imagenet
-    learning_rate: 1E-4
+    learning_rate: 3E-4
+    optimizer: Adam
 
 datamodule:
     _target_: src.datasets.Landslide4SenseDataModule
