@@ -1,0 +1,25 @@
+module:
+    _target_: src.models.SegmentationModel
+    model: Unet
+    backbone: resnet18
+    num_channels: 14
+    num_classes: 2
+    weights: imagenet
+    learning_rate: 1E-4
+
+datamodule:
+    _target_: src.datasets.Landslide4SenseDataModule
+    root: data
+    batch_size: 8
+    num_workers: 4
+    num_prefetch: 2
+    val_pct: 0.1
+
+trainer:
+    max_epochs: 100
+    precision: 16
+    gpus: 1
+    log_every_n_steps: 25
+
+augmentations:
+    _target_: src.transforms.augmentations

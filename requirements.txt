@@ -1,0 +1,12 @@
+torch
+torchvision
+timm
+kornia
+segmentation-models-pytorch
+numpy
+h5py
+scikit-learn
+pytorch-lightning
+omegaconf
+hydra-core
+einops
