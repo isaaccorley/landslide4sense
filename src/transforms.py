@@ -1,4 +1,4 @@
-from typing import Tuple
+from typing import Sequence
 
 import kornia.augmentation as K
 import torch.nn as nn
@@ -50,16 +50,11 @@ def augmentations() -> K.AugmentationSequential:
 
 def rgb_augmentations() -> nn.Sequential:
     return nn.Sequential(
-        K.ColorJitter(brightness=0.1, contrast=0.1, saturation=0.1, hue=0.1, p=0.25),
+        K.ColorJitter(brightness=0.1, contrast=0.1, saturation=0.1, hue=0.1, p=0.25)
     )
 
 
 def transforms(
-    mean: Tuple[int, int, int] = MEAN,
-    std: Tuple[int, int, int] = STD,
+    mean: Sequence[float] = MEAN, std: Sequence[float] = STD
 ) -> T.Compose:
-    return T.Compose(
-        [
-            T.Normalize(mean=mean, std=std),
-        ]
-    )
+    return T.Compose([T.Normalize(mean=mean, std=std)])

@@ -34,7 +34,7 @@ class LandSlide4Sense(Dataset):
     def __getitem__(self, idx):
         path = self.images[idx]
         image = self._load_image(path)
-        sample = {"image": image}
+        sample = {"image": image, "filename": os.path.basename(path)}
 
         if self.masks is not None:
             path = self.masks[idx]

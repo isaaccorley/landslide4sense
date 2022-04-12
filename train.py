@@ -17,7 +17,6 @@ def main(cfg_path, cfg):
     trainer = pl.Trainer(**cfg.trainer)
     trainer.fit(model=module, datamodule=datamodule)
     shutil.copyfile(cfg_path, os.path.join(trainer.logger.log_dir, "config.yaml"))
-    trainer.test(datamodule=datamodule)
 
 
 if __name__ == "__main__":
