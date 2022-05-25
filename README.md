@@ -1,4 +1,4 @@
-# LandSlide4Sense Baseline
+# LandSlide4Sense 2022 Baseline
 
 <img src="./assets/logo.png" width="800px"></img>
 
